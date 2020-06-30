@@ -25,31 +25,38 @@ class App extends React.Component {
         super(props);
         // state object
         // THIS IS THE ONLY TIME WE DO DIRECT ASSIGNMENT to this.sate
-        this.state = { lat: null };
+        this.state = { lat: null, errorMessage: '' };
 
         // This is going to start when initialized
         window.navigator.geolocation.getCurrentPosition(
-            async (position) => {
-                try {
-                    // we called setState to update the state
-                    await this.setState({ lat: position.coords.latitude });
-
-                    //  We did not!!
-                    // DONT DO THIS. We can only do this on the initial state on line 27
-                    // THIS IS DIRECT ASSIGNMENT
-                    // this.state.lat = position.coords.latitude
-                } catch(err) {
-                    console.log(err)
-                }
+            (position) => {
+                // we called setState to update the state
+                this.setState({ lat: position.coords.latitude });
+            },
+                //  We did not!!
+                // DONT DO THIS. We can only do this on the initial state on line 27
+                // THIS IS DIRECT ASSIGNMENT
+                // this.state.lat = position.coords.latitude
+            err => {
+                this.setState({ errorMessage: err.message })
             }
         );
     };
 
     // React says we HAVE to define render!!!
+    // This is conditional rendering
     render() {
         // 'this' is going into the constructor's state property
-        return <div>Latitude: {this.state.lat}</div>
-    }
+        if(this.state.errorMessage && !this.state.lat) {
+            return <div>Error: {this.state.errorMessage}</div>;
+        }
+
+        if(!this.state.errorMessage && this.state.lat) {
+            return <div>Latitude: {this.state.lat}</div>;
+        }
+        
+        return <div>Loading!</div>;
+    };
 };
 
 ReactDOM.render(
