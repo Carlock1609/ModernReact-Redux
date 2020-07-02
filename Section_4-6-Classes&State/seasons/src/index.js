@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 // Example of Function based component
 // const App = () => {
@@ -37,19 +38,16 @@ class App extends React.Component {
     componentDidMount() {
         // This is going to start when initialized
         window.navigator.geolocation.getCurrentPosition(
-            (position) => {
-                // we called setState to update the state
-                this.setState({ lat: position.coords.latitude });
-            },
+            // we called setState to update the state - this rerenders the component
+            position => this.setState({ lat: position.coords.latitude }),
                 //  We did not!!
                 // DONT DO THIS. We can only do this on the initial state on line 27
                 // THIS IS DIRECT ASSIGNMENT
                 // this.state.lat = position.coords.latitude
-            err => {
-                this.setState({ errorMessage: err.message })
-            }
+            err => this.setState({ errorMessage: err.message })
+            
         );
-    }
+    };
     // componentDidMount() {
     //     console.log('My component was rendered to the screen');
     // };
@@ -58,9 +56,8 @@ class App extends React.Component {
     //     console.log('My component was jsut updated - rerendered');
     // };
 
-    // React says we HAVE to define render!!!
-    // This is conditional rendering
-    render() {
+    // HELPER method
+    renderContent() {
         // 'this' is going into the constructor's state property
         if(this.state.errorMessage && !this.state.lat) {
             return <div>Error: {this.state.errorMessage}</div>;
@@ -69,8 +66,21 @@ class App extends React.Component {
         if(!this.state.errorMessage && this.state.lat) {
             return <SeasonDisplay lat={this.state.lat} />;
         }
-        
-        return <div>Loading!</div>;
+
+        // reusable component
+        return <Spinner message='Please accept location request...' />
+    }
+
+    // React says we HAVE to define render!!!
+    // This is conditional rendering
+    //  You should try to only have one return in the render. THATS why we use the helper method
+    render() {
+        // 'this' is going into the constructor's state property
+        return (
+            <div className="border red">
+                {this.renderContent()};
+            </div>
+        );
     };
 };
 

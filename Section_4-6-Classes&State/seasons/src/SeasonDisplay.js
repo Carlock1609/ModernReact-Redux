@@ -1,6 +1,8 @@
 import React from 'react';
 import './SeasonDisplay.css';
 
+// PUT configs and methods at the top, component at the bottom
+
 // Tenary refactor
 const seasonConfig = {
     summer: {
