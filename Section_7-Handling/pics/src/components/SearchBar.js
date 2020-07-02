@@ -1,9 +1,21 @@
 import React from 'react';
 
 // WE KNOW this should be a class based component because we are using state and needing the form to change
+// TO ACCESS PROPS IN CLASS COMPONENT USE this.props
 class SearchBar extends React.Component {
     // CONTROLLED ELEMENT
     state = { term: '' };
+
+    // EVENT HANDLER
+    // THIS MAKES IT SO THE FORM CAN SUBMIT ITSELF AND REFRESH
+    onFormSubmit = (event) => {
+        event.preventDefault();
+
+        // sending this prop to the parent component
+        this.props.onSubmit(this.state.term);
+        // REALLY COMMON ERROR
+        // console.log(this.state.term);
+    };
 
     // UNCONTROLLED ELEMENT
     // onChange points to this method/function
@@ -23,11 +35,13 @@ class SearchBar extends React.Component {
     render() {
         return (
             <div className="ui segment">
-                <form className="ui form">
+                <form onSubmit={this.onFormSubmit} className="ui form">
+                    {/* OR INLINE */}
+                {/* <form onSubmit={(event) => this.onFormSubmit(event)} className="ui form"> */}
                     <div className="field">
                         <label>Image Search</label>
                         {/* CONTROLLED */}
-                        <input type="text" value={this.state.term} onChange={(e) => this.setState({ term: e.target.value})}/>
+                        <input type="text" value={this.state.term} onChange={(e) => this.setState({ term: e.target.value})} />
                         {/* UNCONTROLLED BELOW */}
                         {/* onChange listens for any changes to onInputChange - perenthesis will run when rendered, we don't want that, we just want to point to it */}
                         {/* <input type="text" onChange={this.onInputChange} /> */}
@@ -42,3 +56,6 @@ class SearchBar extends React.Component {
 };
 
 export default SearchBar;
+
+// NOTES
+// onChange() is a callback
