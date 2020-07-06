@@ -26,3 +26,21 @@ YOU MUST USE AN ARROW FUNCTION OR IT BREAKS 'this' KEYWORD
 
 PROPS ARE FUNCTION BASED COMPONENTS
 TO USE PROPS IN CLASS BASED COMPONENTS TYPE this.props
+
+
+**IMPORTING CONVENTION**
+Libraries we import should be at the top, whereas modules/files we are importing should be at the bottom
+
+
+**ALL AXIOS CONFIGURATION SHOULD BE IN THEIR OWN FODLER NAMES api AND NAMED WHAT THEY ARE REQUESTING
+
+
+**KEY PROPS ERROR**
+ERROR
+Warning: Each child in a list should have a unique "key" prop.
+Check the render method of `ImageList
+- The issue is there is something that matches the object/id so it doesnt want to render anything and show whats currently in the DOM. we need to allow react to do this. It is trying to save erxtra work.
+- If there is a match, it wont render it and skip to whats not there.
+Assign the key to root element
+THIS ONLY COMES UP WHEN TRYING TO DISPLAY A LIST OF ITEMS
+
