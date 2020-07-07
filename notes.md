@@ -44,3 +44,23 @@ Check the render method of `ImageList
 Assign the key to root element
 THIS ONLY COMES UP WHEN TRYING TO DISPLAY A LIST OF ITEMS
 
+**INSTEAD OF USING VANILLA.js DOM SELECTION REACT USES 'REF'**
+- Gioves access to a single DOM element
+- We create refs in the constructor, assign them to instance variables then pass to a particular JSX element as props
+- The 'ref' property you see on HTML-elements are part of the constructor and there is an attempt to select it
+- YOU CAN MAKE MULTIPLE 'refs' FOR ANYTHING YOU ARE WANTING TO SELECT
+
+
+**ENDING NOTES ON PICS app**
+- Event handlers, we create onSubmit or onChange to listen for changes and make an action. We also set the state to those changes.
+- USE ARROW SYNTAX
+
+- IN ORDER TO GO FROM PARENT TO CHILD AND CHILD TO PARENT, IT MUST BE A CLASS?
+
+- TO RENDER A LIST USE MAP FUNCTION
+
+- 'key' is what you put on the main div containing the object: its an ID
+
+- 'ref' is vanilla.js DOM selector to REACT. You can create multiple.
+
+- LOOK AT PICS APP FOR CSS GRID REFERENCES FOR DISPLAY IMAGES OR DIVS

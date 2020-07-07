@@ -1,14 +1,21 @@
 import React from 'react';
+import './ImageList.css';
+import ImageCard from './ImageCard';
 
 const ImageList = (props) => {
     // map is a function that loops over an original list and creates a new one.
-    const images = props.images.map(({id, urls, alt_description}) => {
+    // Deconstruction doesnt always work
+    const images = props.images.map((image) => {
         // Giving the key to the object below so REACT wont keep rendering the same image over and over if theres a match
-       return <img key={id} src={urls.small} alt={alt_description}/>
+       return (
+            <ImageCard key={image.id} image={image} />
+       );
     });
 
     return (
-        <div>{images}</div>
+        <div className="image-list">
+            {images}
+        </div>
     );
 };
 
