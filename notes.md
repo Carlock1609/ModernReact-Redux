@@ -68,3 +68,21 @@ THIS ONLY COMES UP WHEN TRYING TO DISPLAY A LIST OF ITEMS
 **COMMUNICATING FROM CHILD BACK UP TO PARENT USING A CALLBACK**
 
 **USE SECTION 11 STYLING VIDEO DETAIL FOR CLICKING ON CALENDAR******
+
+
+
+REACT FRAGMENTS***
+Use React Fragments when your trying to display your component without using a Element tag.
+- I have a Div that was displaying an extra Border, so I used a Fragment and still put the css on it.
+
+
+
+**REASON WHY WE USE ARROW FUNCTIONS WITH HELPER METHIODS**
+Use arrow function becasue if you dont it runs on load. Rather than when invoked
+
+
+***setState***
+// first param, peace of state we want to change
+// second param, is a function to update the piece of state - also auto rerenders
+// the = null is the initial value which is empty - kinda like a default - it doesn't have to be null. Jsut depends on what your working with
+// You can have multiple states, you would jsut rewrite this line however many times and put in the default param
