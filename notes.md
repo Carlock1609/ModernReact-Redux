@@ -86,3 +86,18 @@ Use arrow function becasue if you dont it runs on load. Rather than when invoked
 // second param, is a function to update the piece of state - also auto rerenders
 // the = null is the initial value which is empty - kinda like a default - it doesn't have to be null. Jsut depends on what your working with
 // You can have multiple states, you would jsut rewrite this line however many times and put in the default param
+
+
+**useEffect******
+// This second arguement controlls when useEffect executes
+// Their are three different options.
+// 1. an array with a param
+// 2. an empty array
+// 3. no array or arguement
+
+EMPTY ARRAY - Run at initial render
+ARRAY WITH DATA - Run at initial render AND run after every rerender if data has changed since last rerender
+NOTHING - Run at inital render AND run after every rerender
+
+*********FOR SEARCH FUNCTIONALITY**********
+LOOK AT SECTION-12 WIDGETS USEEFFECT EXAMPLE IMPLEMENTING THE TERM AND DEBOUNCETERM STRAT
