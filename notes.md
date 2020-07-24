@@ -101,3 +101,15 @@ NOTHING - Run at inital render AND run after every rerender
 
 *********FOR SEARCH FUNCTIONALITY**********
 LOOK AT SECTION-12 WIDGETS USEEFFECT EXAMPLE IMPLEMENTING THE TERM AND DEBOUNCETERM STRAT
+
+
+***useRef***
+This is just like DOM selection when you envoke it and assign it to a JSX element.
+You can make multiple ref's and assign them to different values.
+Once assigned you can log the ref to see everything inside of it.
+THIS IS QUERYSELECTOR
+
+**DEBOUNCING**
+debouncing fixes the issue of making to many API requests from a search that is listening to keystrokes.
+What this does is the 'debouncing' state is listening for the keystrokes and sets a timer, that if completed in time with no more keystrokes, sends its info to the actual state that makes the request.
+Then in that same useEffect, it is listening to the keystrokes, so any time it is rerendered, we have a cleaner function that returns and resets the timer.
