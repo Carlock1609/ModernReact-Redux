@@ -113,3 +113,8 @@ THIS IS QUERYSELECTOR
 debouncing fixes the issue of making to many API requests from a search that is listening to keystrokes.
 What this does is the 'debouncing' state is listening for the keystrokes and sets a timer, that if completed in time with no more keystrokes, sends its info to the actual state that makes the request.
 Then in that same useEffect, it is listening to the keystrokes, so any time it is rerendered, we have a cleaner function that returns and resets the timer.
+
+
+
+**NAVIGATION**
+BUILT LINK AND ROUTER FROM SCRATCH  IN SECTION 12
